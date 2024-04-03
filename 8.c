@@ -22,6 +22,8 @@ int main() {
    *
    *  }
    *
+   *  product = 0;
+   *
    * }
    * printf("%d\n", max);
    */
