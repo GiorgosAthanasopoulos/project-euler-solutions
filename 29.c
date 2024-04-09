@@ -21,5 +21,6 @@ int main() {
     }
   }
   printf("%d\n", index - 1);
+  free(sequence);
   return 0;
 }
