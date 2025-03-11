@@ -19,11 +19,9 @@ int main(int argc, char **argv) {
   int target = 20;
 
   while (1) {
-    for (int i = upper; i >= lower; --i) {
-      if (target % i != 0) {
+    for (int i = upper; i >= lower; --i)
+      if (target % i != 0)
         goto endfor;
-      }
-    }
 
     break;
 

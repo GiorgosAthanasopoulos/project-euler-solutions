@@ -1,11 +1,11 @@
-// CPP is used cuz cstrings are =(
+// CPP is used cuz cstrings are =( (skill issue)
+#define MY_MATH_IMPLEMENTATION
+#include "my_math.h"
 
 #include <math.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string>
-
-int digitCount(int n) { return floor(log10(abs(n))) + 1; }
 
 std::string compute(int n) {
   switch (digitCount(n)) {
@@ -32,6 +32,7 @@ std::string compute(int n) {
     case 9:
       return "nine";
     }
+    break;
   case 2:
     switch (n / 10) {
     case 1:
@@ -57,6 +58,7 @@ std::string compute(int n) {
       case 9:
         return compute(n % 10) + "teen";
       }
+      break;
     case 2:
       return "twenty" + compute(n % 10);
     case 3:
@@ -74,6 +76,7 @@ std::string compute(int n) {
     case 9:
       return "ninety" + compute(n % 10);
     }
+    break;
   case 3:
     return compute(n / 100) + (n % 100 == 0 ? "hundred" : "hundredand") +
            compute(n % 100);

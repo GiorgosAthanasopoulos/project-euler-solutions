@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+
 int main(int argc, char **argv) {
   printf("[INFO]: Problem: https://projecteuler.net/problem=2\n");
   printf("[INFO]: Description: Find the sum of even valued fibonacci sequence "
@@ -18,9 +19,8 @@ int main(int argc, char **argv) {
   int sum = 0;
 
   while (b < ceiling) {
-    if (b % 2 == 0) {
+    if (b % 2 == 0)
       sum += b;
-    }
 
     int temp = b;
     b = a + b;

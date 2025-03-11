@@ -6,22 +6,19 @@ typedef long long ll;
 
 ll getTriangleNumber(ll n) {
   ll sum = 0;
-  for (ll i = 1; i <= n; ++i) {
+  for (ll i = 1; i <= n; ++i)
     sum += i;
-  }
   return sum;
 }
 
 ll getDivisorCount(ll n) {
   ll divisorCount = 0;
-  for (ll i = 1; i <= sqrt(n); ++i) {
+  for (ll i = 1; i <= sqrt(n); ++i)
     if (n % i == 0) {
       divisorCount++;
-      if (i != n / i) {
+      if (i != n / i)
         divisorCount++;
-      }
     }
-  }
   return divisorCount;
 }
 

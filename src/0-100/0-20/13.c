@@ -17,9 +17,9 @@ int main(int argc, char **argv) {
     return 1;
   }
 
-  int targetDigitCount = atoi(argv[1]);
+  // int targetDigitCount = atoi(argv[1]);
   int numberCount = atoi(argv[2]);
-  int numberDigitCount = atoi(argv[3]);
+  // int numberDigitCount = atoi(argv[3]);
   char *filename = argv[4];
 
   FILE *file = fopen(filename, "r");
@@ -29,39 +29,31 @@ int main(int argc, char **argv) {
   }
 
   mpz_t numbers[numberCount];
-  for (int i = 0; i < numberCount; ++i) {
+  for (int i = 0; i < numberCount; ++i)
     mpz_init(numbers[i]);
-  }
   int idx = 0;
 
   while (1) {
     char *buf = NULL;
     size_t len = 0;
-    ssize_t read = 0;
-    read = getline(&buf, &len, file);
-    if (read == -1) {
+    if (getline(&buf, &len, file) == -1)
       break;
-    }
 
     mpz_set_str(numbers[idx++], buf, 10);
-    if (buf) {
-      free(buf);
-    }
+    free(buf);
   }
 
   mpz_t sum;
   mpz_init(sum);
 
-  for (int i = 0; i < numberCount; ++i) {
+  for (int i = 0; i < numberCount; ++i)
     mpz_add(sum, sum, numbers[i]);
-  }
 
   printf("[INFO]: Solution: ");
   mpz_out_str(stdout, 10, sum);
   printf("\n");
-  for (int i = 0; i < numberCount; ++i) {
+  for (int i = 0; i < numberCount; ++i)
     mpz_clear(numbers[i]);
-  }
   fclose(file);
   return 0;
 }

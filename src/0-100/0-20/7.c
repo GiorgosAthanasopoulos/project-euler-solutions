@@ -1,16 +1,8 @@
-#include <math.h>
+#define MY_MATH_IMPLEMENTATION
+#include "my_math.h"
+
 #include <stdio.h>
 #include <stdlib.h>
-
-int isPrime(int target) {
-  for (int i = 2; i <= sqrt(target); ++i) {
-    if (target % i == 0 && target != i) {
-      return 0;
-    }
-  }
-
-  return 1;
-}
 
 int main(int argc, char **argv) {
   printf("[INFO]: Problem: https://projecteuler.net/problem=7\n");
@@ -30,15 +22,13 @@ int main(int argc, char **argv) {
   while (1) {
     if (isPrime(needle)) {
       index++;
-      if (index == target) {
+      if (index == target)
         break;
-      }
     }
 
     needle++;
   }
 
   printf("[INFO]: Solution: %d\n", needle);
-
   return 0;
 }

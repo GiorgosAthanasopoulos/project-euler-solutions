@@ -23,6 +23,5 @@ int main(int argc, char **argv) {
   }
 
   printf("[INFO]: Solution: %lld\n", llabs(sumSquares - sum * sum));
-
   return 0;
 }

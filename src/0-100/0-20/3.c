@@ -9,22 +9,12 @@ int smallestFactor(long target) {
         "[ERROR]: smallestFactor argument must be a number greater than 1\n");
     exit(1);
   }
-  for (long i = 2, end = sqrt(target); i <= end; ++i) {
-    if (target % i == 0) {
+
+  for (long i = 2, end = sqrt(target); i <= end; ++i)
+    if (target % i == 0)
       return i;
-    }
-  }
+
   return target;
-}
-
-int isPrime(long long needle) {
-  for (long long i = 2; i <= sqrt(needle); ++i) {
-    if (needle % i == 0 && needle != i) {
-      return 0;
-    }
-  }
-
-  return 1;
 }
 
 int main(int argc, char **argv) {
@@ -46,13 +36,13 @@ int main(int argc, char **argv) {
 
   while (1) {
     long factor = smallestFactor(target);
-    if (factor < target) {
+
+    if (factor < target)
       target /= factor;
-    } else {
+    else
       break;
-    }
   }
 
-  printf("[INFO]: Solution: %d\n", target);
+  printf("[INFO]: Solution: %lld\n", target);
   return 0;
 }

@@ -14,11 +14,9 @@ int main(int argc, char **argv) {
   int limit = atoi(argv[1]);
   int sum = 0;
 
-  for (int i = 1; i < limit; ++i) {
-    if (i % 3 == 0 || i % 5 == 0) {
+  for (int i = 1; i < limit; ++i)
+    if (i % 3 == 0 || i % 5 == 0)
       sum += i;
-    }
-  }
 
   printf("[INFO]: Solution: %d\n", sum);
   return 0;

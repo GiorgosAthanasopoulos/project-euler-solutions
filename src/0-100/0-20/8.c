@@ -4,8 +4,6 @@
 
 typedef long long ll;
 
-ll max(ll a, ll b) { return a >= b ? a : b; }
-
 int main(int argc, char **argv) {
   printf("[INFO]: Problem: https://projecteuler.net/problem=8\n");
   printf("[INFO]: Description: Find the x adjacent digits in the y-digit "
@@ -42,12 +40,10 @@ int main(int argc, char **argv) {
 
   for (ll i = 0; i <= numberLength - adjacentDigitCount; ++i) {
     ll product = 1;
-    for (ll j = i; j < i + adjacentDigitCount; ++j) {
+    for (ll j = i; j < i + adjacentDigitCount; ++j)
       product *= buf[j] - '0';
-    }
-    if (product > maxProduct) {
+    if (product > maxProduct)
       maxProduct = product;
-    }
   }
 
   printf("[INFO]: Solution: %lld\n", maxProduct);
