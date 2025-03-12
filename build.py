@@ -39,7 +39,7 @@ if problemNo <= 20:
 
 
 def run(cmd: str) -> int:
-    print(cmd)
+    print("+ " + cmd)
     return os.system(cmd)
 
 

@@ -8,7 +8,7 @@
 #include <string>
 
 std::string compute(int n) {
-  switch (digitCount(n)) {
+  switch (intLen(n)) {
   case 1:
     switch (n) {
     case 0:

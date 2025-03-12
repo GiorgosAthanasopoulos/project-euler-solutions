@@ -17,6 +17,7 @@ QueueNode *newQueueNode(Node *n);
 Queue *newQueue(void);
 void enqueue(Queue *q, Node *n);
 Node *dequeue(Queue *q);
+void freeQueue(Queue *q);
 
 #ifdef QUEUE_IMPLEMENTATION
 QueueNode *newQueueNode(Node *n) {
@@ -64,5 +65,12 @@ Node *dequeue(Queue *q) {
   return n;
 }
 #endif // QUEUE_IMPLEMENTATION
+void freeQueue(Queue *q) {
+  if (!q)
+    return;
+  while (dequeue(q)) {
+  }
+  free(q);
+}
 
 #endif // QUEUE_H_

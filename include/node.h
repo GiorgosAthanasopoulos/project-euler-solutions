@@ -7,9 +7,11 @@ typedef struct Node {
 } Node;
 
 Node *newNode(int val);
+void freeNode(Node *n);
 
 #ifdef NODE_IMPLEMENTATION
 #include <malloc.h>
+#include <stdlib.h>
 
 Node *newNode(int val) {
   Node *node = (Node *)malloc(sizeof(Node));
@@ -17,6 +19,8 @@ Node *newNode(int val) {
   node->left = node->right = NULL;
   return node;
 }
+
+void freeNode(Node *n) { free(n); }
 #endif // NODE_IMPLEMENTATION
 
 #endif // NODE_H_
