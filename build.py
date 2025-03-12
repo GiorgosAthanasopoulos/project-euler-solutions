@@ -10,10 +10,12 @@ LDFLAGS = "-lm -lgmp"
 SRC_DIR = "src"
 SRC_0_100 = f"{SRC_DIR}/0-100"
 SRC_0_20 = f"{SRC_0_100}/0-20"
+SRC_21_40 = f"{SRC_0_100}/21-40"
 
 BUILD_DIR = "build"
 BUILD_DIR_0_100 = f"{BUILD_DIR}/0-100"
 BUILD_DIR_0_20 = f"{BUILD_DIR_0_100}/0-20"
+BUILD_DIR_21_40 = f"{BUILD_DIR_0_100}/21-40"
 
 if len(sys.argv) < 1:
     print("[ERROR]: missing argument: problem #")
@@ -35,6 +37,14 @@ if problemNo <= 20:
         SRC = f"{SRC_0_20}/{problemNo}.cpp"
         CFLAGS = CFLAGS.replace("-std=gnu17", "-std=c++11")
     OUTPUT_PATH = BUILD_DIR_0_20
+    EXEC = f"{OUTPUT_PATH}/{problemNo}"
+elif problemNo <= 40:
+    SRC = f"{SRC_21_40}/{problemNo}.c"
+    if not os.path.exists(SRC):
+        CC = "g++"
+        SRC = f"{SRC_21_40}/{problemNo}.cpp"
+        CFLAGS = CFLAGS.replace("-std=gnu17", "-std=c++11")
+    OUTPUT_PATH = BUILD_DIR_21_40
     EXEC = f"{OUTPUT_PATH}/{problemNo}"
 
 
